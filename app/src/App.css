@@ -1,0 +1,103 @@
+/* App-specific styles */
+
+/* Image optimization */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Form select styling for dark backgrounds */
+select option {
+  background-color: #0B1E2A;
+  color: #F6F7F6;
+}
+
+/* Button hover states enhancement */
+.btn-primary,
+.btn-secondary,
+.btn-outline-sand {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::after,
+.btn-secondary::after,
+.btn-outline-sand::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.btn-primary:hover::after,
+.btn-secondary:hover::after,
+.btn-outline-sand:hover::after {
+  left: 100%;
+}
+
+/* Focus states for accessibility */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #D4A27F;
+  outline-offset: 2px;
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Mobile optimizations */
+@media (max-width: 1024px) {
+  .headline-xl {
+    font-size: clamp(32px, 8vw, 44px);
+  }
+  
+  .headline-lg {
+    font-size: clamp(28px, 6vw, 34px);
+  }
+  
+  .headline-md {
+    font-size: clamp(24px, 5vw, 28px);
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .btn-primary {
+    border: 2px solid #0B1E2A;
+  }
+  
+  .btn-secondary {
+    border: 3px solid #0B1E2A;
+  }
+}
+
+/* Footer fade-in via CSS (replaces GSAP ScrollTrigger — fix #17) */
+@keyframes footerFade {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-footer-fade {
+  animation: footerFade 0.5s ease-out 0.1s both;
+}
+
+/* Cookie consent banner slide-up entrance */
+@keyframes cookieslide {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}

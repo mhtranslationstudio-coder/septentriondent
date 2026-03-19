@@ -1,0 +1,321 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 96.5%;
+    --foreground: 200 50% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 200 50% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 200 50% 10%;
+    --primary: 200 50% 10%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 30 40% 66%;
+    --secondary-foreground: 200 50% 10%;
+    --muted: 0 0% 90%;
+    --muted-foreground: 200 10% 45%;
+    --accent: 30 40% 66%;
+    --accent-foreground: 200 50% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 200 10% 85%;
+    --input: 200 10% 85%;
+    --ring: 30 40% 66%;
+    --radius: 0.375rem;
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 200 10% 26%;
+    --sidebar-primary: 200 50% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 0 0% 95%;
+    --sidebar-accent-foreground: 200 50% 10%;
+    --sidebar-border: 200 13% 91%;
+    --sidebar-ring: 30 40% 66%;
+  }
+}
+
+@layer base {
+  * {
+    border-color: hsl(var(--border));
+  }
+  
+  html {
+    /* scroll-behavior: smooth removed — GSAP ScrollTrigger manages all scroll
+       animation. Having both causes double-easing and phantom drift. */
+    scroll-behavior: auto;
+  }
+  
+  body {
+    @apply bg-offwhite text-navy font-body antialiased;
+    overflow-x: hidden;
+    overflow-anchor: none; /* prevent browser scroll anchoring on navigation */
+  }
+  
+  html {
+    overflow-anchor: none;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display font-bold tracking-tight;
+  }
+}
+
+@layer components {
+  /* section-pinned removed — sections now use standard document flow */
+  
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-8 py-4 bg-sand text-navy font-body font-semibold text-sm uppercase tracking-widest rounded-md transition-all duration-300 hover:bg-sand-dark hover:shadow-lg;
+  }
+  
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-8 py-4 border-2 border-navy text-navy font-body font-semibold text-sm uppercase tracking-widest rounded-md transition-all duration-300 hover:bg-navy hover:text-offwhite;
+  }
+  
+  .btn-outline-sand {
+    @apply inline-flex items-center justify-center px-8 py-4 border-2 border-sand text-sand font-body font-semibold text-sm uppercase tracking-widest rounded-md transition-all duration-300 hover:bg-sand hover:text-navy;
+  }
+  
+  .text-label {
+    @apply font-body font-semibold text-xs uppercase tracking-[0.14em];
+  }
+  
+  .headline-xl {
+    @apply font-display font-bold leading-[0.92] tracking-[-0.01em];
+    font-size: clamp(44px, 5vw, 78px);
+  }
+  
+  .headline-lg {
+    @apply font-display font-bold leading-[1.0] tracking-[-0.01em];
+    font-size: clamp(34px, 3.6vw, 56px);
+  }
+  
+  .headline-md {
+    @apply font-display font-semibold leading-[1.08] tracking-[0em];
+    font-size: clamp(28px, 2.8vw, 42px);
+  }
+  
+  .body-text {
+    @apply font-body font-normal leading-relaxed;
+    font-size: clamp(15px, 1.1vw, 17px);
+  }
+  
+  .grain-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.04;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F6F7F6;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #0B1E2A;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #1a3a4a;
+}
+
+/* Selection color */
+::selection {
+  background: #D4A27F;
+  color: #0B1E2A;
+}
+
+/* Mobile Touch Target Optimization */
+/* Ensure all interactive elements have minimum 44x44px touch target */
+button,
+a,
+input,
+select,
+textarea,
+[role="button"] {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+/* Prevent iOS zoom on input focus - font size must be at least 16px */
+input,
+select,
+textarea {
+  font-size: 16px !important;
+}
+
+/* Fluid images and containers */
+img,
+video,
+iframe,
+embed,
+object {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Prevent horizontal scrolling */
+html,
+body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+/* Container fluidity */
+.container,
+[class*="container"] {
+  max-width: 100%;
+}
+
+/* Responsive breakpoints */
+/* Mobile: up to 767px */
+@media (max-width: 767px) {
+  .headline-xl {
+    font-size: clamp(28px, 8vw, 36px);
+  }
+  
+  .headline-lg {
+    font-size: clamp(24px, 6vw, 30px);
+  }
+  
+  .headline-md {
+    font-size: clamp(20px, 5vw, 24px);
+  }
+  
+  /* Stack buttons vertically on mobile */
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Tablet: 768px to 1024px */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .headline-xl {
+    font-size: clamp(36px, 6vw, 52px);
+  }
+  
+  .headline-lg {
+    font-size: clamp(30px, 4vw, 42px);
+  }
+  
+  .headline-md {
+    font-size: clamp(24px, 3vw, 32px);
+  }
+}
+
+/* Desktop: 1025px and above */
+@media (min-width: 1025px) {
+  /* Default desktop styles already defined */
+}
+
+/* iOS momentum scrolling */
+@supports (-webkit-touch-callout: none) {
+  .overflow-scroll {
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .btn-primary {
+    border: 2px solid #0B1E2A;
+  }
+  
+  .btn-secondary {
+    border: 3px solid #0B1E2A;
+  }
+  
+  input,
+  select,
+  textarea {
+    border-width: 2px;
+  }
+}
+
+/* Print styles */
+@media print {
+  .grain-overlay,
+  nav,
+  .btn-primary,
+  .btn-secondary {
+    display: none !important;
+  }
+  
+  body {
+    background: white !important;
+    color: black !important;
+  }
+}
+
+/* ─── Responsive overrides ─────────────────────────────────────────── */
+
+/* Prevent buttons from stretching full-width on non-mobile */
+@media (min-width: 640px) {
+  .btn-primary,
+  .btn-secondary {
+    width: auto !important;
+  }
+}
+
+/* Tighter padding on small devices */
+@media (max-width: 480px) {
+  .headline-xl { font-size: clamp(26px, 7.5vw, 34px); }
+  .headline-lg { font-size: clamp(22px, 6.5vw, 28px); }
+  .headline-md { font-size: clamp(18px, 5.5vw, 24px); }
+}
+
+/* Safe-area insets for iPhone notch / home bar */
+@supports (padding: max(0px)) {
+  .min-h-screen {
+    min-height: max(100vh, 100svh);
+  }
+  body {
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
+}
+
+/* Animated sliding underline for treatment card titles */
+.animated-underline {
+  position: relative;
+  display: inline-block;
+}
+
+.animated-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0%;
+  height: 1px;
+  background-color: currentColor;
+  opacity: 0.5;
+  transition: width 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: left;
+}
+
+.group:hover .animated-underline::after {
+  width: 100%;
+}

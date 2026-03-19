@@ -1,0 +1,15 @@
+{
+  "name": "Septentrion Group",
+  "short_name": "Septentrion",
+  "description": "World-class dental tourism in Albania — save up to 70% on implants, veneers and full-arch restorations.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F6F7F6",
+  "theme_color": "#0B1E2A",
+  "lang": "en",
+  "icons": [
+    { "src": "/favicon-16x16.png", "sizes": "16x16", "type": "image/png" },
+    { "src": "/favicon-32x32.png", "sizes": "32x32", "type": "image/png" },
+    { "src": "/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }
+  ]
+}

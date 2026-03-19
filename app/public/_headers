@@ -1,0 +1,28 @@
+# Cache static assets for 1 year
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Cache images and videos for 1 year
+*.jpg
+  Cache-Control: public, max-age=31536000
+*.jpeg
+  Cache-Control: public, max-age=31536000
+*.png
+  Cache-Control: public, max-age=31536000
+*.webp
+  Cache-Control: public, max-age=31536000
+*.mp4
+  Cache-Control: public, max-age=31536000
+*.ico
+  Cache-Control: public, max-age=31536000
+
+# Never cache HTML — always serve fresh
+/*.html
+  Cache-Control: no-cache, no-store, must-revalidate
+
+# Security headers on all pages
+/*
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
