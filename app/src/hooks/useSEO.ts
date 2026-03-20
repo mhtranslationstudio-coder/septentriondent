@@ -11,7 +11,7 @@ interface SEOMeta {
 }
 
 const SITE_NAME = 'Septentrion Group';
-const SITE_URL  = 'https://septentrion.group';
+const SITE_URL = 'https://septentriondent.com';
 const DEFAULT_IMG = `${SITE_URL}/og-cover.jpg`;
 const PHONE     = '+44 20 4577 2065';
 const PHONE_RAW = '+442045772065';
