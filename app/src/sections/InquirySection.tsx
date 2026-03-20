@@ -51,7 +51,6 @@ const InquirySection = ({ className = '' }: InquirySectionProps) => {
               Get a Free Quote
               <ArrowRight size={18} />
             </Link>
-            <p className="text-xs text-offwhite/50 text-center">No medical advice provided. We facilitate travel and logistics only.</p>
           </div>
         </div>
       </div>
