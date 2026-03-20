@@ -34,5 +34,6 @@ User-agent: anthropic-ai
 Allow: /
 
 # Sitemap
-Sitemap: https://septentrion.group/sitemap.xml
-Sitemap: https://septentrion.group/sitemap-images.xml
+Sitemap: https://septentriondent.com/sitemap.xml
+Sitemap: https://septentriondent.com/sitemap-images.xml
+
